@@ -7,16 +7,27 @@ I have done this project on the Remix Editor which is a coding platform and had 
 I have use the pragma solidity ^0.8.25 version in this code and the License is //SPDX-License-Identifier : MIT
 
 This Solidity smart contract project implements a basic voting system with functionalities create, manage and vote on proposals.
+
 a. voteproposal: a structure to hold proposals details includeing description, countvote and existence flag in it.
+
 b. proposals: a mapping from proposal id to voterproposal strucrs, storing all proposals.
+
 c. hasvoted: a nested mapping to track if an address has voted on a specific proposal. It maps and address to another mapping, which maps proposal id to a boolean which indicates that address gas voted on a specific proposal.
+
 d. owner: address of contract owner.
+
 e. countproposal: to krep track of the number of prioposals.
+
 f. owneronly: a modifier to restrict certain fucntions in the code.
+
 g. checkvote(uint id): chceks if a proposal id exists.
+
 h. recordvotes(uint id): it allows and address to vote on the proposal if checkvotes returns true after condition is met and increment the vote count for the proposal.
+
 i. getvotecount: returns the vote count for a specific id.
+
 j. removeproposal(uint id): allows the owner to mark the proposal as non-existent
+
 k. receive(): it reverts any ether sent to the contract as it ensures it does not accept any payments.
 
 To run code you can visit:  https://remix.ethereum.org/
