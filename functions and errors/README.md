@@ -35,7 +35,9 @@ In this site, click on VotingSystem_.sol under deafulkt_workspace
 
 ## Usage
 require(): this function is used to validate the input and conditions before executing the code. It further checks if a condition is true and if not, it revert the the transaction. It is used for input, precondition and access control.
+
 assert(): this function is used to check the condition given that should never be false. If an assert condition fails, it indicates a bug in the contract and revert the transaction. If the condition is true then function execution continues and jump to the next statement.
+
 revert(): function is used to explicitly revert the transaction, it can be used with or without error message. It is useful for conditional checks. It is often used to given more detailed information about the reason for thr failure.
 
 ## Author
