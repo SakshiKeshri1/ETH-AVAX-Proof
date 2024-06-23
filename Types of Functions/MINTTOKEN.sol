@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
-// import OpenZeppli's ERC20 and ownable contracts
+// import OpenZepplin's ERC20 and ownable contracts
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract MINTTOKEN is ERC20 {
