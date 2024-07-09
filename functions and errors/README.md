@@ -1,44 +1,70 @@
 ## Smart Contract Project
 
-In this, we have to create a smart contract that implements require(), assert() and revert() statements.
+In this, we have to create a smart contract that implements require(), assert() and revert() statements. This solidity contract implements the simple voting system where owner can create and users can vote on them.
 
 ## Description
+
 I have done this project on the Remix Editor which is a coding platform and had set up the environment so it can compile and run successfully without any error.
+
 I have use the pragma solidity ^0.8.25 version in this code and the License is //SPDX-License-Identifier : MIT
 
 This Solidity smart contract project implements a basic voting system with functionalities create, manage and vote on proposals.
 
-a. voteproposal: a structure to hold proposals details includeing description, countvote and existence flag in it.
+a. voteproposal(): a structure to hold proposals details includeing description, countvote and existence flag in it.
 
-b. proposals: a mapping from proposal id to voterproposal strucrs, storing all proposals.
+b. proposals(): a mapping from proposal id to voteproposal structs, storing all proposals.
 
-c. hasvoted: a nested mapping to track if an address has voted on a specific proposal. It maps and address to another mapping, which maps proposal id to a boolean which indicates that address gas voted on a specific proposal.
+c. hasvoted(): a nested mapping to track if an address has voted on a specific proposal. It maps and address to another mapping, which maps proposal id to a boolean which indicates that address gas voted on a specific proposal.
 
 d. owner: address of contract owner.
 
-e. countproposal: to krep track of the number of prioposals.
+//state variables
+e. countproposal: to keep track of the number of proposals.
 
-f. owneronly: a modifier to restrict certain fucntions in the code.
+f. owneronly: a modifier to restrict certain functions in the code.
 
-g. checkvote(uint id): chceks if a proposal id exists.
+g. checkvote(uint id): checks if a proposal id exists.
 
-h. recordvotes(uint id): it allows and address to vote on the proposal if checkvotes returns true after condition is met and increment the vote count for the proposal.
+h. recordvotes(uint id): it allows the address to vote on the proposal if checkvotes returns true after condition is met and increment the vote count for the proposal.
 
-i. getvotecount: returns the vote count for a specific id.
+i. getvotecount(uint id): returns the vote count for a specific id.
 
 j. removeproposal(uint id): allows the owner to mark the proposal as non-existent
 
 k. receive(): it reverts any ether sent to the contract as it ensures it does not accept any payments.
 
 To run code you can visit:  https://remix.ethereum.org/
-In this site, click on VotingSystem_.sol under deafulkt_workspace
+
+In this site, click on VotingSystem_.sol under deafault_workspace
 
 ## Usage
-require(): this function is used to validate the input and conditions before executing the code. It further checks if a condition is true and if not, it revert the the transaction. It is used for input, precondition and access control.
 
-assert(): this function is used to check the condition given that should never be false. If an assert condition fails, it indicates a bug in the contract and revert the transaction. If the condition is true then function execution continues and jump to the next statement.
+*require(): this function is used to validate the input and conditions before executing the code. It further checks if a condition is true and if not, it revert the the transaction. It is used for input, precondition and access control.
 
-revert(): function is used to explicitly revert the transaction, it can be used with or without error message. It is useful for conditional checks. It is often used to given more detailed information about the reason for thr failure.
+*assert(): this function is used to check the condition given that should never be false. If an assert condition fails, it indicates a bug in the contract and revert the transaction. If the condition is true then function execution continues and jump to the next statement.
+
+*revert(): function is used to explicitly revert the transaction, it can be used with or without error message. It is useful for conditional checks. It is often used to given more detailed information about the reason for thr failure.
+
+## Code
+
+```
+/ SPDX-License-Identifier: MIT
+
+pragma solidity 0.8.25;
+
+contract VotingSystem_{
+    struct Voteproposal {
+        string descp;
+        uint countVote_;
+        bool exists;
+    }
+
+    mapping(uint=>Voteproposal) public proposals;
+    mapping(address=>mapping(uint=>bool)) public hasVoted;
+
+    uint public Countproposal;
+    address public Owner;
+```
 
 ## Author
 Name- Sakshi Keshri
